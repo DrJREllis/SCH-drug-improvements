@@ -1,0 +1,54 @@
+#### Mansoni parameter values. 
+
+### Model running parameters.
+repNum	50		Number of repetitions
+nYears	41		Number of years to run
+nHosts	500		Size of definitive host population (N)
+burnIn	50
+outputInterval	0.1
+
+### Social structure
+contactAgeBreaks	0 5 12 20 90			Contact age group breaks (minus sign necessary to include zero age) 
+betaValues	0.01 0.61 1 0.12				Relative contact rates (Beta) # 0.01 1.2 1 0.02 OR 0.01 0.61 1 0.12
+rhoValues	0.01 0.61 1 0.12				Rho, contribution to the reservoir by contact age group. 
+
+### Epidemiological parameters. 
+k	0.24			Shape parameter of assumed negative binomial distribution of worms amongst host (k). THIS VALUE PLUCKED OUT OF THE AIR. 
+lambda	0.34		Eggs per gram (lambda) [Value from Chan = 7.0] ### 0.14 value from de Vlas/Cheever. 
+R0	4			Basic reproductive number (R0)   ## 2.85
+k_epg	0.87			Shape parameter of assumed negative binomial distribution of eggs
+ReservoirDecayRate	5	Reservoir decay rate (decay rate of eggs in the environment)
+sigma	0.175		Worm death rate (sigma) i.e. 1/worm_life_span, same for all development stages
+gamma	0.0007	Exponential density dependence of parasite adult stage (gamma) This value probably comes from Cheever. 
+
+
+### Sexual reproduction styles. 
+reproFuncName	epgMonog	## name of function for reproduction (a string).  [Deterministic] ## epgPerPerson   epgFertility	epgMonog
+StochSR	TRUE		## Turn SR on or off in the stochastic model. 	[Stochastic]  ## FALSE
+
+## Treatment parameters. 
+adherenceSetting	systematic	Type of adherence, systematic or betabinomial
+propNeverCompliers	0				Proportion of the population systematically never treated
+rhoAdherence	0					rho parameter that determines adherence in betabinomial model
+treatmentBreaks	0 2 5 16 80		Minimum age of each treatment group (minus sign necessary to include zero age): Infants; Pre-SAC; SAC; Adults
+coverage	0 0.75 0.75 0.75	            Coverages: Infants; Pre-SAC; SAC; Adults
+drugEff	0.863					Drug efficacy
+drugEffJuv	0					Drug efficacy
+drugResistance	0			Reduction in drug efficacy after each use due to resistance
+longLastEfficacy	0		Prophylactic effect
+longLastTimescale	0		Decay of prohylactic effect
+treatStart	1				Treatment year start; Treatment year end; Frequency of treatment by year. ADDED A BIT TO ENSURE OUTPUT FIRST. 
+nRounds	100					Number of treatment rounds. 
+treatInterval	1			interval between treatments in years. ##0.5
+numFirstDrug	100			number of times before switching drugs
+drugEff2	0.863			second drug efficacy
+drugEffJuv2	0			    second drug efficacy against juveniles
+elimThreshold	-1			 prevalence threshold at which MDA stops (must be negative for no threshold)
+
+## Output age classes. 
+outputBreaks	0 1 5 10 23 39 59 90		## What are the output age classes? 
+
+## High worm burden.  DUMMY VALUES DUMMY VALUES DUMMY VALUES DUMMY VALUES DUMMY VALUES 
+burdenThreshold	16
+highBurdenBreaks	0 5 10 100	## Three categories here. 
+highBurdenValues	10 15 20	## Corresponding values. 

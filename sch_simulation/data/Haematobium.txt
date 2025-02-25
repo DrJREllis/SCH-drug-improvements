@@ -1,0 +1,43 @@
+#### Haematobium parameter values. 
+
+### Model running parameters.
+repNum	50		Number of repetitions
+nYears	16		Number of years to run
+nHosts	500		Size of definitive host population (N)
+burnIn	50
+outputInterval	0.2
+
+### Social structure
+contactAgeBreaks	0 5 12 21 90			Contact age group breaks (minus sign necessary to include zero age) 
+betaValues	0.17 1 0.11 0.035				Relative contact rates (Beta) 
+rhoValues	0.17 1 0.11 0.035				Rho, contribution to the reservoir by contact age group. 
+
+### Epidemiological parameters. 
+k	0.24			Shape parameter of assumed negative binomial distribution of worms amongst host (k). THIS VALUE PLUCKED OUT OF THE AIR. 
+lambda	3.6		Eggs per gram (lambda) [Value from Chan = 7.0] ### 0.14 value from de Vlas/Cheever. 
+k_epg	0.5			Shape parameter of assumed negative binomial distribution of eggs
+R0	2.5			Basic reproductive number (R0)   ## 2.85
+ReservoirDecayRate	5	Reservoir decay rate (decay rate of eggs in the environment)
+sigma	0.25		Worm death rate (sigma) i.e. 1/worm_life_span, same for all development stages
+gamma	0.0014	Exponential density dependence of parasite adult stage (gamma) This value probably comes from Cheever. 
+
+
+### Sexual reproduction styles. 
+reproFuncName	epgMonog	## name of function for reproduction (a string).  [Deterministic] ## epgPerPerson   epgFertility	epgMonog
+StochSR	TRUE		## Turn SR on or off in the stochastic model. 	[Stochastic]  ## FALSE
+
+## Treatment parameters. 
+treatmentBreaks	0 2 5 16 80		Minimum age of each treatment group (minus sign necessary to include zero age): Infants; Pre-SAC; SAC; Adults
+coverage	0 0 0.75 0	            Coverages: Infants; Pre-SAC; SAC; Adults
+drugEff	0.99					Drug efficacy
+treatStart	0.4				Treatment year start; Treatment year end; Frequency of treatment by year. ADDED A BIT TO ENSURE OUTPUT FIRST. 
+nRounds	8					Number of treatment rounds. 
+treatInterval	2			interval between treatments in years. ##0.5
+
+## Output age classes. 
+outputBreaks	0 1 5 10 23 39 59 90		## What are the output age classes? 
+
+## High worm burden.  DUMMY VALUES DUMMY VALUES DUMMY VALUES DUMMY VALUES DUMMY VALUES 
+burdenThreshold	50
+highBurdenBreaks	0 5 10 100	## Three categories here. 
+highBurdenValues	10 15 20	## Corresponding values. 
